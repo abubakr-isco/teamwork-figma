@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Факты — TESPACK</title>
+  <link rel="stylesheet" href="./facts.css">
+</head>
+<body>
+  <header class="header">
+    <a href="./index.html">
+      <img src="./public/images/logo.svg" alt="TESPACK" class="logo">
+    </a>
+    <nav aria-label="Основная навигация">
+      <a href="./index.html">Главная</a>
+      <a href="#products">Продукция</a>
+      <a href="#about">О компании</a>
+      <a href="#benefits">Возможности</a>
+      <a href="#news">Новости</a>
+      <a href="#contacts">Контакты</a>
+    </nav>
+    <a class="request" href="#contacts">Оставить заявку</a>
+  </header>
+
+  <main>
+    <section class="intro">
+      <h1>Факты о компании</h1>
+      <p>TESPACK — пластиковая упаковка и упаковочные системы.</p>
+    </section>
+
+    <section class="facts" aria-label="Факты о компании">
+      <article>
+        <h2>300+</h2>
+        <p>Клиентов</p>
+      </article>
+      <article>
+        <h2>100 000 м²+</h2>
+        <p>Производственных площадей</p>
+      </article>
+      <article>
+        <h2>5+</h2>
+        <p>Лет опыта</p>
+      </article>
+      <article>
+        <h2>500+</h2>
+        <p>Реализованных проектов</p>
+      </article>
+    </section>
+
+    <section class="about" id="about">
+      <h2>О компании</h2>
+      <div class="about-images">
+        <img src="./public/images/about-1.png" alt="О компании TESPACK">
+        <img src="./public/images/about-2.png" alt="Производство TESPACK">
+        <img src="./public/images/about-3.png" alt="Продукция TESPACK">
+        <img src="./public/images/about-4.png" alt="Работа компании">
+      </div>
+    </section>
+
+    <section class="benefits" id="benefits">
+      <h2>Наши преимущества</h2>
+      <div class="benefit-images">
+        <img src="./public/images/benefits/1.svg" alt="Преимущество 1">
+        <img src="./public/images/benefits/2.svg" alt="Преимущество 2">
+        <img src="./public/images/benefits/3.svg" alt="Преимущество 3">
+        <img src="./public/images/benefits/4.svg" alt="Преимущество 4">
+        <img src="./public/images/benefits/5.svg" alt="Преимущество 5">
+      </div>
+    </section>
+
+    <section class="projects" id="products">
+      <h2>Наши проекты</h2>
+      <div class="project-images">
+        <img src="./public/images/realize-1.png" alt="Реализованный проект">
+        <img src="./public/images/realize-2.png" alt="Реализованный проект">
+      </div>
+    </section>
+
+    <section class="contacts" id="contacts">
+      <h2>Оставить заявку</h2>
+      <form id="contact-form">
+        <input id="name" name="name" placeholder="Ваше имя" autocomplete="name" required>
+        <input id="phone" name="phone" type="tel" placeholder="+998 91 123 45 67" autocomplete="tel" required>
+        <button type="submit">Отправить</button>
+        <p id="form-status" role="status"></p>
+      </form>
+    </section>
+  </main>
+
+  <footer id="news">
+    <img src="./public/images/logo-2.svg" alt="TESPACK" class="logo">
+  </footer>
+
+  <script src="./facts.js"></script>
+</body>
+</html>
