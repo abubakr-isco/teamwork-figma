@@ -80,7 +80,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 .nav__link:hover{opacity:.75;transform:translateY(-1px)}
 .nav__link--drop:hover svg{transform:translateY(2px)}
 
-.lang{left:1108px;top:44px;width:48px;height:28px}
+.lang{position:absolute;left:1108px;top:44px;width:48px;height:28px}
 .lang__btn{width:48px;height:28px;display:flex;align-items:center;justify-content:center;padding:10px 10px 10px 15px;background:#F1F1F1;border-radius:8px;transition:background .2s}
 .lang__btn:hover{background:#E4E4E4}
 .lang__text{font:400 12px/110% var(--inter);color:#000;margin:0 -2px}
@@ -93,7 +93,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 .lang__list li:hover{background:#F1F1F1}
 .lang__list li[aria-selected="true"]{color:var(--blue);font-weight:500}
 
-.btn-request{left:1168px;top:32px;width:212px;height:52px;display:flex;align-items:center;justify-content:center;
+.btn-request{position:absolute;left:1168px;top:32px;width:212px;height:52px;display:flex;align-items:center;justify-content:center;
   background:#fff;border-radius:12px;font:500 15px/110% var(--inter);letter-spacing:-1px;color:#000;white-space:nowrap;
   transition:background .2s,transform .2s var(--ease),box-shadow .2s}
 .btn-request:hover{background:#E6E8F0;transform:translateY(-1px);box-shadow:0 6px 14px rgba(0,0,0,.18)}
