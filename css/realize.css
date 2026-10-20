@@ -1,0 +1,291 @@
+/* =====================================================================
+   Tespack — «Всё, что вам нужно, мы готовы реализовать»
+   Десктоп: холст 1440px (Figma, realize.svg). Мобильная версия — адаптация в стиле contacts (холст 430px).
+   Шапка, форма и футер совпадают с contacts.css. Масштабирование делает js/contacts.js (zoom).
+   ===================================================================== */
+
+/* ---------- Шрифты ----------
+   GT Walsheim Pro — коммерческий шрифт: положи woff2 в public/fonts с этими именами.
+   Пока файлов нет, используется запасной Inter. */
+@font-face{font-family:'GT Walsheim Pro';font-weight:400;font-style:normal;font-display:swap;src:url('../public/fonts/GTWalsheimPro-Regular.woff2') format('woff2')}
+@font-face{font-family:'GT Walsheim Pro';font-weight:500;font-style:normal;font-display:swap;src:url('../public/fonts/GTWalsheimPro-Medium.woff2') format('woff2')}
+@font-face{font-family:'GT Walsheim Pro';font-weight:700;font-style:normal;font-display:swap;src:url('../public/fonts/GTWalsheimPro-Bold.woff2') format('woff2')}
+
+@font-face{font-family:'Inter';font-weight:400;font-display:swap;src:url('../public/fonts/inter-cyrillic-400-normal.woff2') format('woff2');unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
+@font-face{font-family:'Inter';font-weight:500;font-display:swap;src:url('../public/fonts/inter-cyrillic-500-normal.woff2') format('woff2');unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
+@font-face{font-family:'Inter';font-weight:700;font-display:swap;src:url('../public/fonts/inter-cyrillic-700-normal.woff2') format('woff2');unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
+@font-face{font-family:'Inter';font-weight:400;font-display:swap;src:url('../public/fonts/inter-latin-400-normal.woff2') format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'Inter';font-weight:500;font-display:swap;src:url('../public/fonts/inter-latin-500-normal.woff2') format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'Inter';font-weight:700;font-display:swap;src:url('../public/fonts/inter-latin-700-normal.woff2') format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+
+:root{
+  --navy:#03156B;
+  --blue:#062BD9;
+  --shadow:0 2px 6px rgba(0,0,0,.2), inset 0 0 4px rgba(2,15,35,.3);
+  --gt:'GT Walsheim Pro','Inter',sans-serif;
+  --inter:'Inter',sans-serif;
+  --ease:cubic-bezier(.22,.61,.36,1);
+}
+
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{background:#fff}
+a{color:inherit;text-decoration:none}
+ul{list-style:none}
+address{font-style:normal}
+h1,h2,h3{font-weight:inherit}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+:focus-visible{outline:2px solid var(--blue);outline-offset:2px}
+
+.wrap{width:100%;overflow-x:clip}
+.page{position:relative;width:1440px;margin:0 auto;font-family:var(--gt)}
+
+/* =====================================================================
+   ДЕСКТОП 1440
+   ===================================================================== */
+
+
+/* ---------- верхний блок (0 → 1329) ---------- */
+.top{position:relative;height:1329px}
+.top > *{position:absolute}
+
+/* ---------- header ---------- */
+.header{left:0;top:0;width:1440px;height:115px;background:var(--navy);border-radius:0 0 24px 24px;z-index:5}
+.header > *{position:absolute}
+.header__logo{left:60px;top:31px;width:168px;height:51px;transition:opacity .25s var(--ease)}
+.header__logo img{display:block;width:168px;height:51px}
+.header__logo:hover{opacity:.85}
+.burger{display:none}
+.menu{display:contents}
+
+.search{position:absolute;left:284px;top:51px;width:200px;height:18px}
+.search__icon{position:absolute;left:0;top:0}
+.search__input{position:absolute;left:28px;top:1.5px;width:172px;height:15px;background:none;border:0;outline:0;-webkit-appearance:none;appearance:none;
+  font:400 14px/140% var(--gt);letter-spacing:-.011em;color:#fff}
+.search__input::placeholder{color:#fff;opacity:1}
+.search__input::-webkit-search-cancel-button{display:none}
+.search::after{content:"";position:absolute;left:0;top:18px;width:200px;height:0;border-top:1px solid #fff;transform-origin:left;transition:transform .3s var(--ease),opacity .3s}
+.search:focus-within::after{border-top-width:2px;top:17px}
+.search:hover::after{opacity:.8}
+
+.nav{position:absolute;left:0;top:0;width:1440px;height:0}
+.nav__link{position:absolute;top:50px;font:500 14px/110% var(--inter);letter-spacing:-1px;color:#fff;white-space:nowrap;transition:opacity .2s,transform .2s var(--ease)}
+.nav__link:nth-child(1){left:508px}
+.nav__link:nth-child(2){left:583px}
+.nav__link:nth-child(3){left:694px}
+.nav__link:nth-child(4){left:794px}
+.nav__link:nth-child(5){left:907px}
+.nav__link:nth-child(6){left:985px}
+.nav__link svg{position:absolute;left:75px;top:2px;transition:transform .25s var(--ease)}
+.nav__link:hover{opacity:.75;transform:translateY(-1px)}
+.nav__link--drop:hover svg{transform:translateY(2px)}
+
+.lang{position:absolute;left:1108px;top:44px;width:48px;height:28px}
+.lang__btn{width:48px;height:28px;display:flex;align-items:center;justify-content:center;padding:10px 10px 10px 15px;background:#F1F1F1;border-radius:8px;transition:background .2s}
+.lang__btn:hover{background:#E4E4E4}
+.lang__text{font:400 12px/110% var(--inter);color:#000;margin:0 -2px}
+.lang__btn svg{flex:none;transition:transform .25s var(--ease)}
+.lang.is-open .lang__btn svg{transform:rotate(180deg)}
+.lang__list{position:absolute;left:0;top:34px;width:48px;padding:4px 0;background:#fff;border-radius:8px;box-shadow:0 6px 18px rgba(2,15,35,.25);
+  opacity:0;visibility:hidden;transform:translateY(-6px);transition:opacity .2s,transform .2s var(--ease),visibility .2s;z-index:6}
+.lang.is-open .lang__list{opacity:1;visibility:visible;transform:none}
+.lang__list li{padding:6px 0;text-align:center;font:400 12px/110% var(--inter);color:#000;cursor:pointer;transition:background .15s}
+.lang__list li:hover{background:#F1F1F1}
+.lang__list li[aria-selected="true"]{color:var(--blue);font-weight:500}
+
+.btn-request{position:absolute;left:1168px;top:32px;width:212px;height:52px;display:flex;align-items:center;justify-content:center;
+  background:#fff;border-radius:12px;font:500 15px/110% var(--inter);letter-spacing:-1px;color:#000;white-space:nowrap;
+  transition:background .2s,transform .2s var(--ease),box-shadow .2s}
+.btn-request:hover{background:#E6E8F0;transform:translateY(-1px);box-shadow:0 6px 14px rgba(0,0,0,.18)}
+.btn-request:active{transform:translateY(0) scale(.98)}
+
+/* ---------- карточка «реализовать» ---------- */
+.realize{left:60px;top:208px;width:1320px;height:608px;background:var(--navy);border-radius:24px}
+.realize > *{position:absolute}
+.realize__img{display:block;left:24px;top:24px;width:735px;height:560px;border-radius:12px;overflow:hidden}
+.realize__img img{display:block;width:100%;height:100%;object-fit:cover}
+.realize__title{left:784px;top:31px;width:490px;height:173px;font:700 48px/120% var(--gt);letter-spacing:-1px;text-transform:uppercase;color:#fff;white-space:nowrap}
+.realize__text{left:784px;top:461px;width:450px;height:112px;font:400 20px/140% var(--gt);letter-spacing:-.02em;color:#fff;white-space:nowrap}
+
+/* ---------- чем занимается (816 → 1329) ---------- */
+.about{left:286px;top:841px;width:870px;height:432px}
+.about > *{position:absolute;left:0}
+.about__title{top:0;width:640px;height:58px;font:700 48px/120% var(--gt);letter-spacing:-1px;text-transform:uppercase;color:var(--navy);white-space:nowrap}
+.about__text{width:870px;font:400 20px/27px var(--gt);letter-spacing:-.02em;color:#000;white-space:nowrap}
+.about__text--1{top:78px;height:108px}
+.about__text--2{top:238px;height:189px}
+.realize br.m,.about br.m{display:none}
+
+/* ---------- подпись + значение (адрес / контакты в футере) ---------- */
+.label{position:absolute;left:0;top:0;height:21px;display:flex;align-items:center;font:700 14px/21px var(--gt);color:#868686;white-space:nowrap}
+.value{position:absolute;left:0;top:var(--vt);display:flex;align-items:center;font:500 24px/125% var(--gt);color:var(--navy);white-space:nowrap}
+.value--addr{--vt:24px;width:285px;height:60px}
+.value--contact{--vt:14px;width:312px;height:90px;display:block;line-height:30px}
+.value--contact a{display:block;height:30px;line-height:30px;width:max-content;transition:color .2s}
+.value--contact a:hover{color:var(--blue)}
+
+/* ---------- форма + футер (1329 → 2135) ---------- */
+.bottom{position:relative;height:806px}
+.cta{position:absolute;left:170px;top:0;width:1096px;height:312px;background:var(--blue);border-radius:24px;box-shadow:var(--shadow);z-index:2}
+.cta > *{position:absolute}
+.cta__title{left:55px;top:51px;width:378px;height:92px;display:flex;align-items:center;font:700 40px/115% var(--gt);letter-spacing:-.02em;color:#fff;white-space:nowrap}
+.cta__desc{left:55px;top:207px;width:258px;height:54px;font:400 16px/18px var(--gt);color:#fff;white-space:nowrap}
+.cta__form{left:597px;top:51px;width:444px;height:200px}
+.cta__field{position:absolute;left:0;width:444px;height:52px;padding:10px 32px 10px 18px;background:#fff;border:0;border-radius:12px;outline:0;
+  font:500 15px/110% var(--inter);letter-spacing:-1px;color:#000;transition:box-shadow .2s}
+.cta__field:nth-child(1){top:0}
+.cta__field:nth-child(2){top:74px}
+.cta__field::placeholder{color:#868686;opacity:1}
+.cta__field:focus{box-shadow:0 0 0 3px rgba(255,255,255,.45)}
+.cta__field.is-error{box-shadow:0 0 0 2px #FF6B6B}
+.cta__submit{position:absolute;left:0;top:148px;width:444px;height:52px;padding:10px 32px;background:#E6E8F0;border-radius:12px;
+  font:500 16px/110% var(--inter);letter-spacing:-1px;text-align:center;color:#000;transition:background .2s,transform .2s var(--ease)}
+.cta__submit:hover{background:#fff}
+.cta__submit:active{transform:scale(.98)}
+.cta__submit:disabled{cursor:default;opacity:.8}
+
+.footer{position:absolute;left:0;top:160px;width:1440px;height:646px}
+.footer::before{content:"";box-sizing:border-box;position:absolute;left:1px;top:0;width:1440px;height:646px;background:#fff;border-radius:24px;border:1px solid #EAEAEA;border-bottom:0}
+.footer > *{position:absolute}
+.footer__logo{left:57px;top:182px;width:245px;height:69px}
+.footer__logo img{display:block;width:245px;height:69px}
+.footer__addr{left:397px;top:182px;width:285px;height:84px}
+.footer__contact{left:397px;top:290px;width:312px;height:104px}
+.socials{left:397px;top:418px;width:174.09px;height:27px}
+.socials li{position:absolute;top:0;width:27px;height:27px}
+.socials li:nth-child(1){left:0}
+.socials li:nth-child(2){left:48.09px}
+.socials li:nth-child(3){left:97.59px}
+.socials li:nth-child(4){left:147.09px}
+.socials a{display:block;width:100%;height:100%;transition:transform .25s var(--ease),opacity .2s}
+.socials a:hover{transform:translateY(-3px);opacity:.8}
+.socials svg{display:block;width:100%;height:100%}
+.footer__links{top:182px}
+.footer__links--1{left:957px;width:164px}
+.footer__links--2{left:1181px;width:153px}
+.footer__links li{position:absolute;left:0;height:24px;font:400 20px/24px var(--gt);color:#000;white-space:nowrap}
+.footer__links li:nth-child(1){top:0}
+.footer__links li:nth-child(2){top:44px}
+.footer__links li:nth-child(3){top:88px}
+.footer__links li:nth-child(4){top:132px}
+.footer__links li:nth-child(5){top:176px}
+.footer__links a,.footer__legal{transition:color .2s}
+.footer__links a:hover{color:var(--blue)}
+.footer__copy{left:65px;top:547px;height:24px;font:400 16px/24px var(--gt);color:#000;white-space:nowrap}
+.footer__designed{left:400px;top:547px;height:24px;font:400 16px/24px var(--gt);color:#000;white-space:nowrap}
+.footer__legal{top:549px;height:21px;font:400 14px/21px var(--gt);text-decoration:underline;color:#000;white-space:nowrap}
+.footer__legal:hover{color:var(--blue)}
+.l1{left:957px}.l2{left:1105px}.l3{left:1267px}
+
+/* ---------- анимации появления ---------- */
+.js .reveal{opacity:0;transform:translateY(22px);
+  transition:opacity .7s var(--ease) var(--d,0s),transform .7s var(--ease) var(--d,0s),box-shadow .25s,border-color .25s}
+.js .reveal.is-visible{opacity:1;transform:none}
+.js .anim-in{animation:fadeDown .6s var(--ease) both}
+.js .realize__title,.js .realize__text{animation:fadeUp .8s var(--ease) both}
+.js .realize__title{animation-delay:.12s}
+.js .realize__text{animation-delay:.22s}
+@keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
+@keyframes fadeDown{from{opacity:0;transform:translateY(-14px)}to{opacity:1;transform:none}}
+
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  .js .reveal{opacity:1;transform:none}
+}
+
+/* =====================================================================
+   МОБИЛЬНАЯ ВЕРСИЯ 430 (iPhone 14/15 Pro Max)
+   ===================================================================== */
+@media (max-width:767px){
+  .page{width:430px}
+
+  /* на мобильном верх идёт потоком (0 → 1482), отступы — из макета iPhone 14/15 Pro Max - 34 */
+  .top{height:auto;padding:221px 0 51px}
+  .top > .realize,.top > .about{position:relative;left:auto;top:auto}
+
+  /* header: синяя плашка 144px */
+  .header{width:430px;height:144px;border-radius:0 0 20px 20px}
+  .header__logo{left:152px;top:78px;width:126px;height:38px;z-index:7}
+  .header__logo img{width:126px;height:38px}
+  .burger{display:block;position:absolute;left:21.5px;top:88px;width:42px;height:30px;z-index:7}
+  .burger span{position:absolute;left:0;width:42px;height:3px;background:#fff;border-radius:1.5px;transition:transform .3s var(--ease),top .3s var(--ease)}
+  .burger span:nth-child(1){top:3.5px}
+  .burger span:nth-child(2){top:13.5px}
+  .is-menu-open .burger span:nth-child(1){top:8.5px;transform:rotate(45deg)}
+  .is-menu-open .burger span:nth-child(2){top:8.5px;transform:rotate(-45deg)}
+
+  /* выпадающее меню (в макете не нарисовано — только в открытом состоянии) */
+  .menu{display:flex;flex-direction:column;align-items:stretch;gap:16px;position:absolute;left:0;top:0;width:430px;padding:136px 23px 28px;
+    background:var(--navy);border-radius:0 0 20px 20px;box-shadow:0 12px 28px rgba(2,15,35,.35);z-index:6;
+    opacity:0;visibility:hidden;transform:translateY(-10px);transition:opacity .25s,transform .3s var(--ease),visibility .25s}
+  .is-menu-open .menu{opacity:1;visibility:visible;transform:none}
+  .menu > *{position:static!important}
+  .search,.lang{left:0!important;top:0!important}
+  .search{width:100%;height:30px;position:relative!important}
+  .search__input{width:calc(100% - 28px)}
+  .search::after{top:28px;width:100%}
+  .nav{width:auto;height:auto;display:flex;flex-direction:column;gap:14px}
+  .nav__link{position:static;font-size:18px;display:flex;align-items:center;gap:6px}
+  .nav__link svg{position:static}
+  .lang{width:48px;height:28px;position:relative!important}
+  .lang__list{top:-92px}
+  .btn-request{width:100%;height:46px;border-radius:9px}
+
+  /* карточка «реализовать» (221 → 843) */
+  .realize{margin-left:23px;width:384px;height:auto;display:flex;flex-direction:column;padding:21px 18px 32.7px 19px;border-radius:20px}
+  .realize > *{position:static}
+  .realize__img{width:347px;height:265px;border-radius:6px}
+  .realize__title{width:auto;height:auto;margin-top:17px;font-size:36px}
+  .realize__text{width:auto;height:auto;margin:29.5px 0 0 5px;font-size:14px;line-height:150%;letter-spacing:0}
+
+  /* чем занимается (872 → 1431) */
+  .about{margin-left:23px;width:384px;height:auto;padding-top:28.8px}
+  .about > *{position:static}
+  .about__title,.about__text{width:auto;height:auto;white-space:normal}
+  .about__text br{display:none}
+  .realize br.m,.about br.m{display:inline}
+  .about__title{font-size:36px}
+  .about__text{font-size:14px;line-height:20px;letter-spacing:0;text-align:justify}
+  .about__text--1{margin-top:24.6px}
+  .about__text--2{margin-top:28.8px}
+
+  /* форма + футер (1482 → 2360) */
+  .bottom{height:878px}
+  .cta{left:22px;top:0;width:383px;height:331px;border-radius:18px;box-shadow:0 1.5px 4.5px rgba(0,0,0,.2), inset 0 0 3px rgba(2,15,35,.3)}
+  .cta__title{left:22px;top:17px;width:283.5px;height:68px;font-size:30px}
+  .cta__desc{left:22px;top:99px;width:193.5px;height:40.5px;font-size:12px;line-height:14px}
+  .cta__form{left:22px;top:158px;width:336px;height:150px}
+  .cta__field{width:336px;height:39px;padding:7.5px 24px 7.5px 13.5px;border-radius:9px;font-size:11.25px;letter-spacing:-.75px}
+  .cta__field:nth-child(1){top:0}
+  .cta__field:nth-child(2){top:55.5px}
+  .cta__submit{top:111px;width:336px;height:39px;padding:7.5px 24px;border-radius:9px;font-size:12px;letter-spacing:-.75px}
+
+  .footer{top:149px;width:430px;height:729px}
+  .footer::before{left:-1px;width:433px;height:729px;border-radius:18px}
+  .footer__logo{left:21px;top:211px;width:183.75px;height:51.49px}
+  .footer__logo img{width:183.75px;height:51.49px}
+  .footer__links{top:291px}
+  .footer__links--1{left:22px;width:123px}
+  .footer__links--2{left:214px;width:115px}
+  .footer__links li{height:18px;font-size:15px;line-height:18px}
+  .footer__links li:nth-child(2){top:33px}
+  .footer__links li:nth-child(3){top:66px}
+  .footer__links li:nth-child(4){top:99px}
+  .footer__links li:nth-child(5){top:132px}
+  .footer__addr{left:21px;top:492px;width:162px;height:60px}
+  .footer__contact{left:216px;top:492px;width:189px;height:74px}
+  .footer .value{font-size:15px}
+  .footer .value--addr{--vt:22px;width:162px;height:38px}
+  .footer .value--contact{--vt:17px;width:189px;height:57px;line-height:19px}
+  .footer .value--contact a{height:19px;line-height:19px}
+  .socials{left:214px;top:575px;width:130.57px;height:20.25px}
+  .socials li{width:20.25px;height:20.25px}
+  .socials li:nth-child(2){left:36.07px}
+  .socials li:nth-child(3){left:73.19px}
+  .socials li:nth-child(4){left:110.32px}
+  .footer__legal{top:627px;height:16px;font-size:10.5px;line-height:16px}
+  .l1{left:22px}.l2{left:176px}.l3{left:327px}
+  .footer__copy{left:22px;top:658.25px;height:18px;font-size:12px;line-height:18px}
+  .footer__designed{left:258px;top:658.25px;height:18px;font-size:12px;line-height:18px}
+}

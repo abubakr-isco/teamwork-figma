@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tespack — Преимущества нашей продукции</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Manrope:wght@400;500;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./css/benefits.css">
+</head>
+<body>
+    <header class="header">
+        <a href="#" class="header__logo">
+            <img src="public/images/logo.svg" alt="Tespack" width="168" height="51">
+        </a>
+
+        <button class="burger" type="button" aria-label="Открыть меню" aria-expanded="false">
+            <span></span><span></span>
+        </button>
+
+        <label class="search">
+            <svg class="search__icon" width="14" height="14" viewBox="0 0 14 14" fill="none">
+                <circle cx="5.75" cy="5.75" r="4.5" stroke="currentColor" stroke-width="1.5"/>
+                <path d="M9.25 9.25L12.5 12.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+            </svg>
+            <input class="search__input" type="text" placeholder="PET-Преформы">
+        </label>
+
+        <nav class="nav">
+            <a href="#" class="nav__link">Главная</a>
+            <a href="#" class="nav__link nav__link--dropdown">
+                Продукция
+                <svg width="10" height="6" viewBox="0 0 10 6" fill="none">
+                    <path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </a>
+            <a href="#" class="nav__link">О компании</a>
+            <a href="#" class="nav__link">Возможности</a>
+            <a href="#" class="nav__link">Новости</a>
+            <a href="#" class="nav__link">Контакты</a>
+        </nav>
+
+        <button class="lang" type="button">
+            RU
+            <svg width="10" height="6" viewBox="0 0 10 6" fill="none">
+                <path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+        </button>
+
+        <a href="#contact" class="header__btn">Оставить заявку</a>
+    </header>
+
+    <main>
+        <section class="benefits">
+            <div class="benefits__top">
+                <h1 class="benefits__title">Преимущества <br>нашей продукции</h1>
+                <p class="benefits__lead">
+                    С 2006 года компания Tespack уверенно занимает своё место на рынке пластиковый упаковке.
+                    Почти за два десятилетия работы мы превратились в одного из крупнейших производителей Узбекистане
+                </p>
+            </div>
+
+            <ul class="benefits__list">
+                <li class="benefits__item">
+                    <img src="public/images/benefits/1.svg" alt="" width="68" height="68">
+                    <p>Пластиковые бутылки<br>высокого качества</p>
+                </li>
+                <li class="benefits__item">
+                    <img src="public/images/benefits/3.svg" alt="" width="68" height="68">
+                    <p>Экологически безопасные<br>упаковки</p>
+                </li>
+                <li class="benefits__item">
+                    <img src="public/images/benefits/5.svg" alt="" width="68" height="68">
+                    <p>Перерабатываемый<br>пластик без вреда<br>экологии</p>
+                </li>
+                <li class="benefits__item">
+                    <img src="public/images/benefits/2.svg" alt="" width="68" height="68">
+                    <p>Индивидуальное<br>решение для клиента</p>
+                </li>
+                <li class="benefits__item">
+                    <img src="public/images/benefits/4.svg" alt="" width="68" height="68">
+                    <p>Герметичность и<br>прочность упаковки</p>
+                </li>
+                <li class="benefits__item">
+                    <img src="public/images/benefits/4.svg" alt="" width="68" height="68">
+                    <p>Быстрая логистика и<br>стабильная поставка</p>
+                </li>
+            </ul>
+
+            <div class="benefits__text">
+                <p>
+                    Продукция компании TESPACK - это результат многолетнего опыта, технологических инноваций и глубокой
+                    ответственности перед клиентами и окружающей средой. Мы предлагаем не просто упаковку, а комплексные
+                    решения, которые соответствуют самым высоким требованиям современного рынка.
+                </p>
+                <p>
+                    Наша упаковка используется в различных отраслях: от пищевой промышленности до фармацевтики и бытовой
+                    химии. Мы гордимся тем, что наши изделия сочетают в себе качество, безопасность, экологичность и надёжность.
+                </p>
+                <p>
+                    Каждая бутылка, крышка и упаковка проходит строгий контроль качества. Мы используем только
+                    сертифицированные материалы, обеспечивая надёжность и долгий срок службы.
+                </p>
+            </div>
+        </section>
+
+        <section class="cta" id="contact">
+            <div class="cta__info">
+                <h2 class="cta__title">Хотите предложить <br>сотрудничество?</h2>
+                <p class="cta__text">Предлагая широкий ассортимент<br> надежных и экономичных изделий<br> из ПЭТ</p>
+            </div>
+            <form class="cta__form">
+                <input class="cta__input" type="text" name="name" placeholder="Ваше имя">
+                <input class="cta__input" type="tel" name="phone" placeholder="+998 91 123 45 67">
+                <button class="cta__btn" type="submit">Отправить</button>
+            </form>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer__grid">
+            <a href="#" class="footer__logo">
+                <img src="public/images/logo-2.svg" alt="Tespack" width="245" height="69">
+            </a>
+
+            <div class="footer__contacts">
+                <span class="footer__label">Address:</span>
+                <address class="footer__address">2774 Oak Drive,<br>Plattsburgh, New York</address>
+
+                <span class="footer__label footer__label--contact">Contact:</span>
+                <a href="tel:+998911234567" class="footer__contact">+998 91 123 45 67</a>
+                <a href="tel:+998911234567" class="footer__contact">+998 91 123 45 67</a>
+                <a href="mailto:contact@tespack.com" class="footer__contact">contact@tespack.com</a>
+
+                <div class="footer__socials">
+                    <a href="#" aria-label="YouTube">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M17.2 4.5H6.8A5.3 5.3 0 0 0 1.5 9.8v4.4a5.3 5.3 0 0 0 5.3 5.3h10.4a5.3 5.3 0 0 0 5.3-5.3V9.8a5.3 5.3 0 0 0-5.3-5.3Zm-7.4 11V8.5l6.1 3.5-6.1 3.5Z"/></svg>
+                    </a>
+                    <a href="#" aria-label="Facebook">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M13.6 23V13.4h3.2l.5-3.7h-3.7V7.3c0-1.1.3-1.8 1.8-1.8h2V2.2A26 26 0 0 0 14.5 2c-2.9 0-4.8 1.8-4.8 5v2.7H6.5v3.7h3.2V23h3.9Z"/></svg>
+                    </a>
+                    <a href="#" aria-label="Instagram">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M17 1.5H7A5.5 5.5 0 0 0 1.5 7v10A5.5 5.5 0 0 0 7 22.5h10a5.5 5.5 0 0 0 5.5-5.5V7A5.5 5.5 0 0 0 17 1.5ZM12 17a5 5 0 1 1 0-10 5 5 0 0 1 0 10Zm5.5-10.3a1.2 1.2 0 1 1 0-2.4 1.2 1.2 0 0 1 0 2.4ZM12 9.2a2.8 2.8 0 1 0 0 5.6 2.8 2.8 0 0 0 0-5.6Z"/></svg>
+                    </a>
+                    <a href="#" aria-label="LinkedIn">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M3.2 8.5h4v13h-4v-13ZM5.2 2.2a2.3 2.3 0 1 1 0 4.6 2.3 2.3 0 0 1 0-4.6ZM9.7 8.5h3.8v1.8h.1c.5-1 1.8-2.1 3.8-2.1 4 0 4.8 2.7 4.8 6.1v7.2h-4v-6.4c0-1.5 0-3.5-2.1-3.5s-2.5 1.7-2.5 3.4v6.5h-4v-13Z"/></svg>
+                    </a>
+                </div>
+            </div>
+
+            <ul class="footer__menu">
+                <li><a href="#">Главная</a></li>
+                <li><a href="#">Продукция</a></li>
+                <li><a href="#">О компании</a></li>
+                <li><a href="#">Возможности</a></li>
+                <li><a href="#">Контакты и адрес</a></li>
+            </ul>
+
+            <ul class="footer__menu">
+                <li><a href="#">Скачать каталог</a></li>
+                <li><a href="#">Сертификаты</a></li>
+                <li><a href="#">Лицензии</a></li>
+                <li><a href="#">Документация</a></li>
+            </ul>
+        </div>
+
+        <div class="footer__bottom">
+            <span class="footer__copy">© 2025 Tespack</span>
+            <span class="footer__credit">Designed by Bek Musabaev</span>
+            <div class="footer__legal">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+                <a href="#">Cookies Settings</a>
+            </div>
+        </div>
+    </footer>
+    <script src="js/benefits.js"></script>
+</body>
+</html>
