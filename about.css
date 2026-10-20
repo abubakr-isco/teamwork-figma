@@ -1,9 +1,0 @@
-* { box-sizing: border-box; }
-html, body { margin: 0; min-height: 100%; background: #fff; }
-body { font-family: Arial, Helvetica, sans-serif; }
-.mockup { width: 100%; margin: 0 auto; }
-.mockup picture, .mockup img { display: block; width: 100%; }
-.mockup img { height: auto; }
-@media (min-width: 1441px) {
-  .mockup { max-width: 1440px; }
-}
