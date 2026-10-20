@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#03156B">
+  <title>Всё, что вам нужно — Tespack</title>
+  <link rel="stylesheet" href="css/realize.css">
+  <script>document.documentElement.classList.add('js')</script>
+</head>
+<body>
+<div class="wrap">
+<div class="page" id="page">
+
+  <!-- ================= ВЕРХНИЙ БЛОК: шапка, «реализовать», «чем занимается» ================= -->
+  <div class="top">
+    <header class="header" id="header">
+      <a class="header__logo" href="index.html" aria-label="Tespack — на главную"><img src="public/images/tespack-logo-white.svg" alt="Tespack"></a>
+
+      <button class="burger" id="burger" type="button" aria-label="Открыть меню" aria-expanded="false" aria-controls="menu">
+        <span></span><span></span>
+      </button>
+
+      <div class="menu" id="menu">
+        <form class="search" role="search" action="index.html" method="get">
+          <svg class="search__icon" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="7" cy="7" r="4.6" stroke="#fff" stroke-width="1.3"/><path d="M10.4 10.4L13.5 13.5" stroke="#fff" stroke-width="1.3" stroke-linecap="round"/></svg>
+          <input class="search__input" type="search" name="q" placeholder="PET-Преформы" aria-label="Поиск">
+        </form>
+
+        <nav class="nav" aria-label="Основная навигация">
+          <a class="nav__link" href="index.html">Главная</a>
+          <a class="nav__link nav__link--drop" href="about.html">Продукция<svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4 6L8 10L12 6" stroke="#fff" stroke-width="1.5"/></svg></a>
+          <a class="nav__link" href="facts.html">О компании</a>
+          <a class="nav__link" href="benefits.html">Возможности</a>
+          <a class="nav__link" href="news.html">Новости</a>
+          <a class="nav__link" href="contacts.html">Контакты</a>
+        </nav>
+
+        <div class="lang" id="lang">
+          <button class="lang__btn" type="button" aria-haspopup="listbox" aria-expanded="false" aria-label="Язык">
+            <span class="lang__text">RU</span>
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M5 7.5L10 12.5L15 7.5" stroke="#1E1E1E"/></svg>
+          </button>
+          <ul class="lang__list" role="listbox">
+            <li role="option" data-lang="RU" aria-selected="true">RU</li>
+            <li role="option" data-lang="UZ">UZ</li>
+            <li role="option" data-lang="EN">EN</li>
+          </ul>
+        </div>
+
+        <a class="btn-request" href="#form" data-scroll-form>Оставить заявку</a>
+      </div>
+    </header>
+
+    <section class="realize">
+      <picture class="realize__img">
+        <source media="(max-width:767px)" srcset="public/images/realize-2.png" width="347" height="265">
+        <img src="public/images/realize-1.png" width="735" height="560" alt="Производство PET-упаковки Tespack">
+      </picture>
+      <h1 class="realize__title">Всё, что вам<br> нужно мы<br class="m"> готовы<br> реализовать</h1>
+      <p class="realize__text">Мы здесь, чтобы осуществить качественную<br> упаковку, любая ваша идея независимо от<br> того, насколько она безумна, всё, что вы хотите,<br> мы можем создать</p>
+    </section>
+
+    <section class="about">
+      <h2 class="about__title reveal">Чем занимается<br class="m"> Tespack</h2>
+      <p class="about__text about__text--1 reveal">Мы ведем нашу деятельность на мировом уровне и осознаем свою ответственность. Наша<br> идентичность базируется на таких ценностях, как объективность и честность, партнерство и<br> уважительное отношение. Для нас жизненно важно равное отношение ко всем людям и<br> законопослушное ведение деятельности.</p>
+      <p class="about__text about__text--2 reveal">Компания TESPACK является семейным предприятием. Мы стремимся к сбалансированному<br> увеличению доходности компании и к укреплению наших глобальных позиций. Устанавливая<br> и развивая стратегические партнерские отношения, мы нацелены на то, чтобы стать для<br> наших клиентов поставщиком номер 1. Таким образом, мы обеспечиваем спокойствие как<br> нашим сотрудникам, так и нашим клиентам и партнерам. В основе нашей деловой<br> деятельности лежит устойчивое, экологически сознательное использование ресурсов, что<br> позволяет обеспечить здоровую окружающую среду и для будущих поколений.</p>
+    </section>
+  </div>
+
+  <!-- ================= ФОРМА + ФУТЕР ================= -->
+  <div class="bottom">
+    <section class="cta reveal" id="form">
+      <h2 class="cta__title">Хотите предложить<br>сотрудничество?</h2>
+      <p class="cta__desc">Предлагая широкий ассортимент<br>надежных и экономичных изделий<br>из ПЭТ</p>
+      <form class="cta__form" id="ctaForm" action="#" method="post" novalidate>
+        <input class="cta__field" type="text" name="name" placeholder="Ваше имя" autocomplete="name" required aria-label="Ваше имя">
+        <input class="cta__field" type="tel" name="phone" placeholder="+998 91 123 45 67" autocomplete="tel" inputmode="tel" required aria-label="Телефон">
+        <button class="cta__submit" type="submit">Отправить</button>
+      </form>
+    </section>
+
+    <footer class="footer">
+      <a class="footer__logo" href="index.html" aria-label="Tespack — на главную"><img src="public/images/tespack-logo.svg" alt="Tespack"></a>
+
+      <div class="footer__addr">
+        <span class="label">Address:</span>
+        <address class="value value--addr">2774 Oak Drive,<br>Plattsburgh, New York</address>
+      </div>
+      <div class="footer__contact">
+        <span class="label">Contact:</span>
+        <div class="value value--contact">
+          <a href="tel:+998911234567">+998 91 123 45 67</a>
+          <a href="tel:+998911234567">+998 91 123 45 67</a>
+          <a href="mailto:contact@tespack.com">contact@tespack.com</a>
+        </div>
+      </div>
+
+      <ul class="socials">
+        <li><a href="#" aria-label="YouTube"><svg viewBox="0 0 27 27" fill="#03156B"><path fill-rule="evenodd" d="M6 5.5h15a5.5 5.5 0 0 1 5.5 5.5v5a5.5 5.5 0 0 1-5.5 5.5H6A5.5 5.5 0 0 1 .5 16v-5A5.5 5.5 0 0 1 6 5.5zm5.5 4.2v7.6l6.6-3.8z"/></svg></a></li>
+        <li><a href="#" aria-label="Facebook"><svg viewBox="0 0 27 27" fill="#03156B"><path d="M15.8 26.5V15h3.9l.6-4.5h-4.5V7.6c0-1.3.4-2.2 2.2-2.2h2.4V1.4C20 1.3 18.6 1.2 17 1.2c-3.4 0-5.7 2.1-5.7 5.8v3.5H7.5V15h3.8v11.5z"/></svg></a></li>
+        <li><a href="#" aria-label="Instagram"><svg viewBox="0 0 27 27" fill="#03156B"><path fill-rule="evenodd" d="M8.5 1.4h10A7.1 7.1 0 0 1 25.6 8.5v10a7.1 7.1 0 0 1-7.1 7.1h-10A7.1 7.1 0 0 1 1.4 18.5v-10A7.1 7.1 0 0 1 8.5 1.4zM13.5 8a5.5 5.5 0 1 0 0 11 5.5 5.5 0 0 0 0-11zm0 3a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zm6.2-4.8a1.3 1.3 0 1 0 0 2.6 1.3 1.3 0 0 0 0-2.6z"/></svg></a></li>
+        <li><a href="#" aria-label="LinkedIn"><svg viewBox="0 0 27 27" fill="#03156B"><path d="M2.8 10.1h4.9v14.4H2.8zM5.25 2.8a2.8 2.8 0 1 1 0 5.6 2.8 2.8 0 0 1 0-5.6zM10.1 10.1h4.7v2c.7-1.3 2.3-2.4 4.7-2.4 5 0 5.9 3.2 5.9 7.4v7.4h-4.9v-6.6c0-1.6 0-3.6-2.2-3.6s-2.6 1.7-2.6 3.5v6.7h-4.9z"/></svg></a></li>
+      </ul>
+
+      <ul class="footer__links footer__links--1">
+        <li><a href="index.html">Главная</a></li>
+        <li><a href="about.html">Продукция</a></li>
+        <li><a href="facts.html">О компании</a></li>
+        <li><a href="benefits.html">Возможности</a></li>
+        <li><a href="contacts.html">Контакты и адрес</a></li>
+      </ul>
+      <ul class="footer__links footer__links--2">
+        <li><a href="#">Скачать каталог</a></li>
+        <li><a href="#">Сертификаты</a></li>
+        <li><a href="#">Лицензии</a></li>
+        <li><a href="#">Документация</a></li>
+      </ul>
+
+      <p class="footer__copy">© 2025 Tespack</p>
+      <p class="footer__designed">Designed by Bek Musabaev</p>
+      <a class="footer__legal l1" href="#">Privacy Policy</a>
+      <a class="footer__legal l2" href="#">Terms of Service</a>
+      <a class="footer__legal l3" href="#">Cookies Settings</a>
+    </footer>
+  </div>
+
+</div>
+</div>
+<script src="js/contacts.js"></script>
+</body>
+</html>
